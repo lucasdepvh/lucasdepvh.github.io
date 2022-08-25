@@ -1,0 +1,105 @@
+@font-face {
+  font-family: "Cera Pro Medium";
+  src: local("Cera Pro Medium"), local("Cera Pro Medium"),
+    url("../fonts/CeraProMedium.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cera Pro Regular";
+  src: local("Cera Pro Regular"), local("Cera Pro Regular"),
+    url("../fonts/CeraProRegular.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+$font-main: "Cera Pro Medium";
+$font-secondary: "Cera Pro Regular";
+
+$color-main: #6610f2;
+$color-main-hover: #5429cf;
+
+$color-white: #fafafa;
+$color-gray: #bebebe;
+$bg-main: #0e091b;
+$bg-secondary: #110e1b;
+
+@mixin responsive-desktop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin responsive-tablet {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin responsive-mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin spacing-section() {
+  padding: 100px 50px;
+  @include responsive-tablet {
+    padding: 50px 20px;
+  }
+}
+
+@mixin flexbox() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin grid-layout() {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+@mixin button {
+  background: linear-gradient(
+    225deg,
+    rgba(102, 16, 242, 0.3) 0%,
+    rgba(102, 16, 242, 0) 100%
+  );
+  color: $color-white;
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  max-width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid rgba(102, 16, 242, 0.5);
+  transition: all 0.7s ease;
+  margin-top: 30px;
+  font: {
+    size: 18px;
+    weight: 500;
+    family: $font-secondary;
+  }
+  &:hover {
+    padding: 15px 45px;
+    max-width: 280px;
+    background: linear-gradient(
+      225deg,
+      rgba(102, 16, 242, 0.6) 0%,
+      rgba(102, 16, 242, 0) 100%
+    );
+  }
+}
+
+@mixin title-section {
+  padding-bottom: 20px;
+  color: $color-white;
+  font: {
+    size: 4rem;
+    weight: 500;
+  }
+}
